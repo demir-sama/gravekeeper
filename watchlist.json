@@ -1,0 +1,8 @@
+{
+  "lychgate": "https://lychgate-taupe.vercel.app",
+  "repos": [
+    "rust-lang/book",
+    "sindresorhus/awesome",
+    "jlevy/the-art-of-command-line"
+  ]
+}
