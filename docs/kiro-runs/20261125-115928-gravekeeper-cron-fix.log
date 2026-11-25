@@ -1,0 +1,92 @@
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && ls -a && cat app.json agents/gravekeeper.json skills/walk-the-graveyard/SKILL.md && ls docs/kiro-runs ../crew-docs && cat d...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs && grep -n -i -E "command|cwd|APP_ROOT|timeout|triggers|SKILL.md|frontmatter|approval|sandbox" manifest-reference.md getting-sta...
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; grep -n -i -E "timeout|cwd|APP_ROOT|KIROCREW_|def _clean|network|writable|command" $S/cron_script.py | head -120; echo =...
+[tool] status: Completed
+[tool] status: Completed
+Now the docs around crons, APP_ROOT, and the command's sandbox/cwd/env/vet.
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs && sed -n 176,200p manifest-reference.md; sed -n 322,372p manifest-reference.md; grep -n -i "skill" manifest-reference.md gettin...
+[tool] status: Completed
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; sed -n 945,1000p $S/cron_script.py; grep -n "def _clean_cron_env" -A50 $S/*.py | head -90; grep -n "def _vet_shell_comma...
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; grep -rn "app_root\|APP_ROOT\|\.command\b\|\"command\"" $S/apps/*.py 2>/dev/null | grep -i cron | head -30; ls ~/.kiro/c...
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; sed -n 745,780p $S/apps/bridges_crons.py; sed -n 750,830p $S/apps/manifest.py; grep -n "def _vet_shell_command" -r $S | ...
+[tool] status: Completed
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; sed -n 218,330p $S/mcp_cron_vet.py; sed -n 395,460p $S/cron_script.py; sed -n 540,560p $S/cron_script.py; grep -n "def v...
+[tool] status: Completed
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; sed -n 100,135p $S/cron_script.py; sed -n 160,330p $S/cron_script.py | grep -v "^\s*#" | head -120; ls $S/sandbox* 2>/de...
+[tool] status: Completed
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; sed -n 519,600p $S/sandbox_wrap.py; grep -n -i "apps\b\|app_root\|crew/apps\|writable\|read-only\|ro-bind\|network\|unsh...
+[tool] status: Completed
+[tool] Running: cd /tmp && A=$HOME/.kiro/crew/apps/gravekeeper; ls -la $A/data; PY=$HOME/.kiro/crew-venv/bin/python; $PY - <<EOF from kiro_crew.cron_script import run_command_sandboxed for c in ["pwd; ech...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs && grep -n -i -E "Report\b|Done\b|Skip\b|ctx\.|cron script|script cron" api-reference.md manifest-reference.md | grep -i -E "scr...
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && cat test/manifest.test.mjs; cat .kiro/specs/gravekeeper/design.md .kiro/specs/gravekeeper/tasks.md; grep -n "process.exit\|...
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; grep -n "^class Skip\|^class Done\|^class Report\|^class ScriptContext" -A14 $S/cron_script*.py $S/cron_sdk*.py 2>/dev/n...
+[tool] status: Completed
+[tool] status: Failed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && ls scripts; T=/tmp/gk-stub; mkdir -p $T/app/scripts $T/app/data; cp scripts/walk_cron.py $T/app/scripts/ cat > $T/app/scrip...
+[tool] status: Completed
+[tool] Creating walk_cron.py
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && T=/tmp/gk-stub; cp scripts/walk_cron.py $T/app/scripts/ for X in 0 2 1; do STUB_EXIT=$X $HOME/.kiro/crew-venv/bin/python - ...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && T=$HOME/.kiro/crew/apps/zz-gk-stub; mkdir -p $T/scripts $T/data; cp scripts/walk_cron.py $T/scripts/; cp /tmp/gk-stub/app/s...
+[tool] status: Completed
+[tool] Running: T=$HOME/.kiro/crew/apps/zz-gk-stub; rm $T/data/latest-report.md $T/scripts/* && rmdir $T/scripts $T/data $T && rm -r /tmp/gk-stub; cd /workspace/hackathons/kiroween/gravekeeper-src/crew-do...
+[tool] status: Completed
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; grep -rn "triggers" $S --include=*.py -l | grep -v tests | head;
+[tool] status: Completed
+[tool] Running: S=/home/box/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; grep -n "triggers\|def parse\|name\b.*frontmatter\|always" $S/skill_runtime/auto_skills.py | head -30
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && python3 - <<'EOF' import json m=json.load(open('app.json')) m['crons']=[{ "name":"walk-the-graveyard", "cron_expr":"0 9 * *...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && $HOME/.kiro/crew-venv/bin/python - <<'EOF' 2>&1 | grep -v SECURITY from pathlib import Path from kiro_crew.apps import mani...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && $HOME/.kiro/crew-venv/bin/python - <<'EOF' 2>&1 | grep -v SECURITY from pathlib import Path from kiro_crew.apps.manifest im...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && $HOME/.kiro/crew-venv/bin/python - <<'EOF' 2>&1 | grep -v SECURITY from pathlib import Path from kiro_crew.apps.manifest im...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && $HOME/.kiro/crew-venv/bin/python - <<'EOF' 2>&1 | grep -v SECURITY from pathlib import Path from kiro_crew.apps.bridges_cro...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && $HOME/.kiro/crew-venv/bin/python - <<'EOF' 2>&1 | grep -v SECURITY from pathlib import Path import kiro_crew.apps.bridges_c...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && python3 - <<'EOF' p='test/manifest.test.mjs' s=open(p).read() a=s.index(" const agent = await readJson('agents/gravekeeper....
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && python3 - <<'EOF' import re p='test/manifest.test.mjs'; s=open(p).read() a=s.index(" const { MAX_REPOS, SPACING_MS }"); b=s...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && grep -n "cron\|agent" README.md | head -20; grep -c "R1.12\|walk_cron" .kiro/specs/gravekeeper/requirements.md; git status ...
+[tool] status: Completed
+The weekly cron now runs the walker directly as a Crew `script` cron. No agent turn is involved, so nothing waits on an approval. `node --test` passes (36 tests), and I haven't committed anything.
+
+I haven't re-run the full flow through a live gateway. The one remaining step is to disable and enable the installed app once, because Crew applies a changed cron `script` only when the job is recreated. Then use run-now on the Schedule page.
+
+## Why `script` and not `command`
+I checked Crew's source and docs, and ran its own `run_command_sandboxed` and `run_script_sandboxed` here.
+
+- **A `command` cron can't find the app root.** It runs `sh -c` in the gateway's working directory (`/tmp` here). `{APP_ROOT}` is only filled in inside agent JSON, and no env var carries the app root. `$(...)` and `${X:-d}` are refused when the command is stored. A command could only hard-code the install path.
+- **A `script` path resolves inside the app bundle.** `walk_cron.py` takes the root from its own `__file__` and runs `node scripts/walk.mjs` from there.
+- **The sandbox allows what the walker needs.** Under the `cc` sandbox, `node` is on `PATH`, the network works, and `data/` in the app folder is writable.
+- **Result delivery.** `Report` delivers text and keeps the weekly job. I avoided `Done` because it removes the job from the schedule.
+- **Exit codes.** Exit 0 and exit 2 (HTTP 429, history saved) both deliver the walker's summary. Any other exit raises, so the run shows as failed.
+
+I tested `walk_cron.py` with `run_script_sandboxed` against a stub app folder under `~/.kiro/crew/apps` for exit 0, 2 and 1. I removed the stub afterwards. `AppManifest.validate` returns no errors, and Crew's script vet accepts the file.
+
+## What changed
+- **`app.json`:** the cron is now `script: "scripts/walk_cron.py:run_walk"`, with no `agent` or `message`.
+- **Timeouts:** `timeout` is 4500 and `timeout_secs` is 4510. The worst case is 9 gaps × 100 s plus 10 scans × 300 s, which is 3900 s. Crew requires `timeout_secs` ≥ `timeout` + 5.
+- **`scripts/walk_cron.py`:** the new wrapper described above.
+- **`agents/gravekeeper.json`:** the prompt is self-contained and no longer says to load the skill. It describes the data formats and classes, and it reads `{APP_ROOT}/data/latest-report.md`, `walks.json` and `watchlist.json`.
+- **Agent tools:** these are now `fs_read`, `grep` and `glob` only. I removed `execute_bash`. The agent can no longer start a walk. For a walk on demand, use run-now on the Schedule page or run `node scripts/walk.mjs`. If you want agent-triggered walks back, say so.
+- **`SKILL.md`:** the frontmatter is now `name` (matching the directory), `description`, `always: false` and comma-separated `triggers`. The crew-docs don't specify this format, so I copied the one Crew's built-in app skills use. The skill now explains how to read results and doesn't run the walker.
+- **Tests (`test/manifest.test.mjs`):**
+  - The cron must be a script with no agent, message or command.
+  - The script file must exist, define the function, use `Path(__file__)`, run `walk.mjs` and never call `Done`.
+  - The timeouts must cover the worst case and satisfy Crew's `timeout_secs` rule.
+  - The agent must be read-only and self-contained.
+  - The skill frontmatter must be complete.
+- **Docs:** I updated requirements R1.1, R1.2, R1.3 and R2.5, and added R1.12. I also updated the design's cron, agent and skill sections, the tasks, and the README.
+done

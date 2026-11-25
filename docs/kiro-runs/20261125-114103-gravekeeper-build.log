@@ -1,0 +1,148 @@
+I'll start by reading the repo, the docs, and the Lychgate contract.
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && ls -la && cat app.json && find . -path ./node_modules -prune -o -path ./ui/node_modules -prune -o -type f -print | head -50...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && cat agents/sample-agent.json skills/sample-skill/SKILL.md ui/package.json ui/vite.config.ts ui/src/App.tsx ui/.gitignore; c...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; sed -n 1,50p manifest-reference.md; sed -n 300,445p manifest-reference.md; sed -n 1783,1840p manifest-reference.md; sed -n 2043...
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; grep -n '^#' api-reference.md | head -120; grep -n -i 'app data\|appData\|storage\|dataDir\|data_dir' api-reference.md getting-...
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; sed -n 1,120p getting-started.md | head -200; grep -n -i 'SKILL.md\|frontmatter\|"prompt"\|agents/.*json' getting-started.md ma...
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; sed -n 35,178p api-reference.md; sed -n 2750,2762p api-reference.md; sed -n 3513,3590p api-reference.md
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; grep -n 'apps/{name}/api\|/api/apps/<name>\|/api/apps/{name}\|api/apps/\${' *.md | head -40; sed -n 120,200p getting-started.md...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; grep -n "api\.\(get\|post\)(\s*['\`]/\(apps\|api/apps\)" *.md | head; grep -n "api/apps/.*routes\|backend.routes\|routes.*permi...
+[tool] status: Completed
+[tool] Running: cd ~/.local; find . -name 'kiro_crew' -maxdepth 6 -type d 2>/dev/null | head; ls /workspace/hackathons/kiroween/lychgate; cat /workspace/hackathons/kiroween/STATUS-2026-11-25.md | head -40
+[tool] status: Completed
+Now the Lychgate contract.
+[tool] Running: cd /workspace/hackathons/kiroween/lychgate; cat app/api/scan/route.ts lib/scan/input.ts lib/scan/types.ts;
+[tool] Running: cd /workspace/hackathons/kiroween/lychgate; cat app/api/report/route.ts lib/report/report.ts; grep -n 'done\|emit\|type:' lib/scan/engine.ts | head -50
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/lychgate; sed -n 1,40p lib/classify/classify.ts; grep -n 'github' lib/scan/collect*.ts lib/scan/engine.ts | head -20; ls lib/scan lib/report; cat lib/util...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/lychgate; grep -n 'collectGitHub' -A40 lib/scan/sources.ts | head -80; grep -n 'zombie\|ghost\|tombstone' README.md | head
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/lychgate; grep -rn -i 'zombie' --include=*.md --include=*.ts . 2>/dev/null | grep -v node_modules | grep -i 'means\|:.*—\|//' | head -10
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; grep -n "/apps/\${\|'/apps/\|\"/apps/" *.md | head -20; grep -n -i 'apps/<name>/data\|data home\|<data home>' *.md | head -20; ...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; sed -n 3245,3300p api-reference.md
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; grep -n '"tools"\|allowedTools\|"@kirocrew\|"skills"\|resources' getting-started.md manifest-reference.md publishing-guide.md |...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; grep -n -o '.\{80\}execute_bash.\{80\}\|.\{80\}fs_read.\{60\}\|.\{60\}@kirocrew-core.\{80\}' *.md | head -12; grep -n 'allowedT...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; sed -n 2030,2056p api-reference.md; grep -n -i 'agent file\|agent json\|agent definition\|agent template' *.md | head -20
+[tool] status: Completed
+[tool] Running: ls -la ~/.local/bin/kirocrew; head -3 ~/.local/bin/kirocrew; P=$(python3 - <<'E' 2>/dev/null import importlib.util s=importlib.util.find_spec("kiro_crew"); print(s.submodule_search_locatio...
+[tool] status: Completed
+[tool] Running: cd ~/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; ls | head -30; grep -rn "kirocrew-core" --include=*.py . | head -8; ls ~/.kiro/crew/apps | head
+[tool] status: Completed
+[tool] Running: cd ~/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew; find . -path '*agents*' -name '*.json' | head -8; f=$(find . -path '*apps/builtins*' -path '*agents*' -name '*.json' | head -1)...
+[tool] status: Completed
+[tool] Running: cd ~/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew/apps/builtins; cat auto_improvement/agents/scout.json | head -30; grep -h '"tools"' -A4 */agents/*.json | grep -i 'shell\|bash' ...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && cat > .kiro/specs/gravekeeper/design.md <<'EOF' # Gravekeeper: design Formats below were checked against `../crew-docs` (ma...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && mkdir -p test scripts backend && cat > test/walk.test.mjs <<'EOF' import { test } from 'node:test' import assert from 'node...
+[tool] status: Completed
+[tool] Creating walk.mjs
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && node --test test/walk.test.mjs 2>&1 | grep -v '^#\|duration_ms\|^ ---\|^ \.\.\.' | head -60
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: cd ~/.kiro/crew-venv/lib/python3.12/site-packages/kiro_crew/apps; grep -n "def verify_proxy_request" -B3 -A60 proxy_auth.py | head -120
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && cat > test/backend.test.mjs <<'EOF' import { test } from 'node:test' import assert from 'node:assert/strict' import { mkdte...
+[tool] status: Completed
+[tool] status: Failed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && ls test watchlist.json 2>&1; git status --short
+[tool] status: Completed
+Nothing ran. I'll redo it without the blocked command.
+[tool] Creating manifest.test.mjs
+[tool] Creating watchlist.json
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && rm agents/sample-agent.json skills/sample-skill/SKILL.md && rmdir skills/sample-skill && mkdir -p skills/walk-the-graveyard...
+[tool] status: Completed
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && cat > app.json <<'EOF' { "name": "gravekeeper", "version": "0.1.0", "displayName": "Gravekeeper", "description": "Walks the...
+[tool] status: Completed
+[tool] Editing SKILL.md
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && node --test test/ 2>&1 | grep -E '^(✖|ℹ (tests|pass|fail))|failing' ; ls ui; ls ui/src
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && node --test 2>&1 | grep -E '^(✖|ℹ (tests|pass|fail))|failing|not ok'
+[tool] status: Completed
+[tool] Creating App.tsx
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper/ui && npm install 2>&1 | tail -8 && npm run build 2>&1 | tail -15; ls dist; cat .gitignore
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/crew-docs; grep -n -i 'peerDep\|legacy-peer\|npm install' *.md | head
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper/ui && node -e " const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json','utf8'));delete p.peerDependencies;p....
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && head -c 400 ui/dist/index.mjs; echo; ls ui; sed -i 's/^- \[ \] 3\./- [x] 3./;s/^- \[ \] 4\./- [x] 4./;s/^- \[ \] 5\./- [x] ...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && P=$(pwd); kirocrew app install "$P" 2>&1 | tail -30; echo "exit=$?"; kirocrew app list 2>&1 | tail -8
+[tool] status: Completed
+[tool] Running: kirocrew app info gravekeeper 2>&1 | head -40; ls -la ~/.kiro/crew/apps/gravekeeper ~/.kiro/crew/apps/gravekeeper/data 2>&1 | head -30
+[tool] status: Completed
+[tool] Running: ls ~/.kiro/crew/apps/gravekeeper/ui; kirocrew app uninstall gravekeeper 2>&1 | tail; echo "exit=$?"; kirocrew app list 2>&1 | tail -4; ls ~/.kiro/crew/apps
+[tool] status: Completed
+[tool] Running: find ~/.kiro/crew/apps/gravekeeper | head; rmdir ~/.kiro/crew/apps/gravekeeper/data ~/.kiro/crew/apps/gravekeeper 2>&1; ls ~/.kiro/crew/apps
+[tool] status: Completed
+[tool] Running: rm ~/.kiro/crew/apps/gravekeeper/data/.kirocrew-deps.lock && rmdir ~/.kiro/crew/apps/gravekeeper/data ~/.kiro/crew/apps/gravekeeper; ls ~/.kiro/crew/apps
+[tool] status: Completed
+[tool] Running: T=$(mktemp -d); mkdir $T/scripts; cp /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper/scripts/walk.mjs $T/scripts/; echo '{"repos":["bad name"]}' > $T/watchlist.json; node $T/scr...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && cat > .kiro/specs/gravekeeper/requirements.md <<'EOF' # crew-gravekeeper: requirements (EARS) Scope: a separate public repo...
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && python3 - <<'EOF' p='.kiro/specs/gravekeeper/requirements.md' s=open(p).read() s=s.replace("- R1.9 The dashboard shall be u...
+[tool] status: Completed
+Now the README.
+[tool] Creating README.md
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && sed -i 's/^- \[ \] 10\./- [x] 10./' .kiro/specs/gravekeeper/tasks.md && node --test 2>&1 | grep -E '^ℹ (tests|pass|fail)'...
+[tool] status: Completed
+[tool] status: Completed
+[tool] Running: cd /workspace/hackathons/kiroween/gravekeeper-src/gravekeeper && node --test 2>&1 | grep -E '^ℹ (tests|pass|fail)|^✖'
+[tool] status: Completed
+The Gravekeeper app is built. All 35 `node:test` tests pass, the UI builds, and `kirocrew app install` accepted the manifest. I didn't run a live walk or commit anything.
+
+**Verification output**
+- `node --test`: 35 tests (22 walker, 6 backend, 7 manifest), 35 pass, 0 fail.
+- `npm run build` in `ui/` produced `dist/index.mjs` (11.22 kB, 3.66 kB gzipped).
+- `kirocrew app install <this dir>` printed `✅ installed gravekeeper v0.1.0` and `Run: kirocrew app enable gravekeeper`.
+- `kirocrew app list` then showed `gravekeeper 0.1.0 disabled Gravekeeper`.
+- `kirocrew app uninstall gravekeeper` printed `✅ uninstalled gravekeeper`. It also warned that no running gateway was reached, so no backend was stopped.
+- The install left an empty `~/.kiro/crew/apps/gravekeeper/` with a lock file. I removed it.
+- I also ran the walker CLI against a local stub of Lychgate (not the real service). It wrote `walks.json` and reported the first walk as a baseline. A watchlist with no valid repos exited with code 1.
+
+**What I built**
+- **Specs:** `design.md` and `tasks.md` are written. `requirements.md` now matches the real Crew format, with added requirements for the backend's signature check and path resolution.
+- **Manifest:** the agent and skill are in `app.json`, and the sample agent and skill are gone. The cron is weekly (`cron_expr: "0 9 * * 1"`, UTC) with `agent: gravekeeper`. Permissions are only `cron` and `api: ["/apps/gravekeeper/api"]`.
+- **Agent:** it has `fs_read`, `grep`, `glob` and `execute_bash`, and no write tool. Its prompt uses the documented `{APP_ROOT}` placeholder to find the walker.
+- **Walker:** `scripts/walk.mjs` follows the Lychgate scan and report contracts. Beyond the spec, it also:
+  - refuses to overwrite a corrupt `walks.json`;
+  - keeps history for repos you stop watching;
+  - strips backticks and newlines from scanned values before putting them in the report.
+- **Backend:** the docs describe no way for a UI page to read app files, so I added the smallest documented option. It is a read-only Node process with `GET /health` and `GET /api/walks`, and it checks the `X-KiroCrew-Proxy` signature when the gateway provides a secret.
+- **Dashboard:** `ui/src/App.tsx` shows one card per repo with health, sparkline, counts and the report link.
+  - Colour is never the only signal.
+  - It uses native `<details>` for the grave list, so it works by keyboard.
+  - Grave URLs are plain text, and only HTTPS snapshot links are clickable.
+- **Seed watchlist:** `rust-lang/book`, `sindresorhus/awesome`, `jlevy/the-art-of-command-line`.
+- **README:** covers install, configuration, how a walk works, safety, and credit to Demir only.
+
+**Decisions to check**
+- A repo's first walk is a baseline and never produces a report, so a first run on the seed list writes no `latest-report.md`.
+- I removed the `peerDependencies` block from `ui/package.json`. `npm install` failed on it because `@kirocrew/app-sdk` isn't on npm, and the docs say not to install it.
+- `ui/dist/` is not git-ignored, because a local-path install needs it. Commit it if you want git-URL installs to work without a build.
+- An app update replaces `watchlist.json` in the installed folder, so users must keep a copy of their list. The README says so. A `data/`-level override would fix it, but I left it out.
+
+**Not verified**
+- The UI calling `/apps/gravekeeper/api/walks` has not run, because no gateway was running here. The `permissions.api` prefix is my reading of the docs.
+- The agent's `{APP_ROOT}` placeholder and the cron's `agent: "gravekeeper"` name are also unchecked at runtime. The install accepted the manifest.
+- The skill runs the 15-minute walk in the background and polls a log file, so the agent's shell tool should not time out. I haven't tested that either.
