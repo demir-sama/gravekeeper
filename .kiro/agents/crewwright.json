@@ -1,0 +1,62 @@
+{
+  "name": "crewwright",
+  "description": "Builds the Gravekeeper Kiro Crew app from its spec, test-first.",
+  "prompt": "You build the Gravekeeper Kiro Crew app in this repo from .kiro/specs/gravekeeper. Follow .kiro/steering. Verify Kiro Crew formats against crew-docs/ (the official app-kit docs, read-only reference, at ../crew-docs) rather than guessing. Test first with node:test. Never commit, never push, never write secrets.",
+  "tools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash"
+  ],
+  "toolsSettings": {
+    "execute_bash": {
+      "allowedCommands": [
+        "npm .*",
+        "npx .*",
+        "node .*",
+        "kirocrew app (init|info|list|install|uninstall|enable|disable).*",
+        "ls.*",
+        "cat .*",
+        "rg .*",
+        "grep .*",
+        "find .*",
+        "sed .*",
+        "head .*",
+        "tail .*",
+        "wc .*",
+        "mkdir .*",
+        "test .*",
+        "echo .*",
+        "git status.*",
+        "git diff.*",
+        "python3 .*"
+      ],
+      "deniedCommands": [
+        "git push.*",
+        "git commit.*",
+        "rm -rf.*",
+        "curl.*",
+        "wget.*",
+        "vercel.*",
+        "sudo.*"
+      ],
+      "autoAllowReadonly": true
+    },
+    "fs_write": {
+      "deniedPaths": [
+        ".env*",
+        ".git/**",
+        "../crew-docs/**"
+      ]
+    }
+  },
+  "resources": [
+    "file://.kiro/steering/*.md",
+    "file://.kiro/specs/gravekeeper/requirements.md"
+  ],
+  "model": "auto"
+}
