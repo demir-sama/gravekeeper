@@ -1,0 +1,69 @@
+{
+  "name": "gravekeeper",
+  "version": "0.1.0",
+  "displayName": "Gravekeeper",
+  "description": "Walks the graveyard of your docs once a week. Gravekeeper asks the public Lychgate scanner to check the Markdown links of the public repos you watch, keeps the history, and writes a short report with Wayback snapshots and a ready PR description when a repo's health drops or a new dead link appears. It only reports; it never opens pull requests.",
+  "author": "Demir (demir-sama)",
+  "license": "MIT",
+  "tags": [
+    "docs",
+    "links",
+    "link-rot",
+    "monitoring",
+    "open-source",
+    "lychgate"
+  ],
+  "highlights": [
+    "Weekly walk over up to 10 public repos, spaced to respect Lychgate's rate limit",
+    "Health trend and latest shared Lychgate report for each repo on one dashboard page",
+    "New Tombstones, Ghosts and Zombies come with Wayback snapshots and a PR description you can paste",
+    "Read-only: no pull requests, comments or writes to watched repos"
+  ],
+  "useCases": [
+    "When you maintain open-source docs, find out each Monday which links died since last week",
+    "When a release is coming, open the dashboard to see whether docs health fell",
+    "When you fix dead links, paste the ready PR description instead of writing one"
+  ],
+  "configuration": [
+    "Edit watchlist.json in the app folder: list public repos as \"owner/repo\" (at most 10)",
+    "Enable the app; the walk runs by itself on Mondays at 09:00 UTC (no model, no approvals). Ask the Gravekeeper agent what the last walk found"
+  ],
+  "agents": [
+    "agents/gravekeeper.json"
+  ],
+  "skills": [
+    "skills/walk-the-graveyard"
+  ],
+  "crons": [
+    {
+      "name": "walk-the-graveyard",
+      "cron_expr": "0 9 * * 1",
+      "timezone": "UTC",
+      "script": "scripts/walk_cron.py:run_walk",
+      "timeout": 4500,
+      "timeout_secs": 4510
+    }
+  ],
+  "backend": {
+    "type": "node",
+    "entryPoint": "backend/server.mjs",
+    "port": "auto",
+    "healthCheck": "/health"
+  },
+  "ui": {
+    "entry": "dist/index.mjs",
+    "pages": [
+      {
+        "route": "/apps/gravekeeper",
+        "label": "Gravekeeper",
+        "icon": "Package"
+      }
+    ]
+  },
+  "permissions": {
+    "cron": true,
+    "api": [
+      "/apps/gravekeeper/api"
+    ]
+  }
+}
